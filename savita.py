@@ -1,5 +1,4 @@
 import math
-import re
     
 def solve(n, k, roads):
     myGraph = {}
@@ -7,7 +6,6 @@ def solve(n, k, roads):
     nodeEdge2 = None
     edgeNeeded = None
     edge_counter = 1
-    selection = []
     for i in roads:
         a = i[0]
         b = i[1]
@@ -66,6 +64,7 @@ def solve(n, k, roads):
             v =edgeNeeded/2
             return [float('%0.05f' % v), float('%0.05f' % v)]
         inf, sup = INFER, SUPER
+        
         while (sup-inf >0.00001 or sup==inf or sup==0):
             currentInf = inf + (sup-inf)/4
             currentSup = inf +3*(sup-inf)/4
@@ -151,7 +150,7 @@ def solve(n, k, roads):
 #[9, 3, 70]
 #]
 #solve(10,5,dasRoads)
-f = open("txt\\test_2_4.txt", "r")
+f = open("txt\\test_2_1.txt", "r")
 v = []
 environVars = []
 count = 0
@@ -162,7 +161,6 @@ for x in f:
         for word in a.split():
             if word.isdigit():
                 temp1.append(int(word))
-            #numbers.append(int(word))
         v.append(temp1)
     else:
         a = x
@@ -170,5 +168,4 @@ for x in f:
             if word.isdigit():
                 environVars.append(int(word))
     count +=1
-print(v[environVars[2]-1])
 print(solve(environVars[0],environVars[2],v))
