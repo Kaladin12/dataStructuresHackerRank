@@ -158,7 +158,7 @@ def solve(n, k, roads):
 #[9, 3, 70]
 #]
 #solve(10,5,dasRoads)
-f = open("txt\\test_2_5.txt", "r")
+f = open("txt\\test_4_0.txt", "r")
 v = []
 environVars = []
 count = 0
