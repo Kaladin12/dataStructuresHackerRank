@@ -24,7 +24,7 @@ def solve(n, k, roads):
     
     def dijkstra(begin, end):
         shortest = {}
-        
+
         last = {}
         notVisitedNodes = []
         notVisitedNodes = myGraph.copy()
@@ -48,8 +48,8 @@ def solve(n, k, roads):
             path.insert(0,currentNode)
             currentNode = last[currentNode] 
         path.insert(0,begin)  
-        print("distancia:", shortest[end])
-        print(path)  
+        #print("distancia:", shortest[end])
+        #print(path)  
         return shortest[end]#,path] 
     values = []
     for i in myGraph:
@@ -59,12 +59,47 @@ def solve(n, k, roads):
             values.append((0, edgeNeeded))
         else:
             values.append((edgeNeeded,0))
-    
+    def biseccionChafa(INFER, SUPER):
+        if (n==2):
+            v =edgeNeeded/2
+            return float('%0.05f' % v)
+        inf, sup = INFER, SUPER
+        er = 8
+        while (sup-inf >0.00001):
+            currentInf = inf + (sup-inf)/4
+            currentSup = inf +3*(sup-inf)/4
+            resInf, resSup = [], []
+            count = 1
+            for i in values:
+                if (i[1]==0):
+                    resInf.append(edgeNeeded-currentInf)
+                    resSup.append(edgeNeeded-currentSup)
+                else:
+                    resInf.append(i[0]+currentInf)
+                    resSup.append(i[0]+currentSup)
+            deviationInf = max(resInf)
+            deviationSup = max(resSup)
+            nextV = (inf+sup)/2
+            if (deviationInf<=deviationSup):
+                sup = nextV
+            else:
+                inf = nextV
+            er-=1
+        return float('%0.05f' % inf)
+    def getMax(distance):
+        currentMax = 0
+        for node in values:
+            temp = min(node) + distance
+            if temp>currentMax:
+                currentMax = temp
+        return currentMax
+
+
+    dis = biseccionChafa(0, edgeNeeded)
+    print("%0.05f" %(dis),"%0.05f" % getMax(dis))
 
 
 
-
-    print()
     
 #2
 #2 1 1
@@ -80,8 +115,15 @@ dasRoads = [
     [3, 4, 1],
     [4, 1, 5]
 ]
+dasRoads = [[1,2,10]]
+solve(2,1,dasRoads)
+dasRoads = [
+    [1, 2, 10],
+    [2, 3, 10],
+    [3, 4, 1],
+    [4, 1, 5]
+]
 solve(4,1,dasRoads)
-
 
 #if (myGraph.get(a)):
 #    myGraph[a].append({b: edge})
