@@ -64,16 +64,16 @@ def solve(n, k, roads):
             v =edgeNeeded/2
             return float('%0.05f' % v)
         inf, sup = INFER, SUPER
-        er = 8
         while (sup-inf >0.00001):
             currentInf = inf + (sup-inf)/4
             currentSup = inf +3*(sup-inf)/4
             resInf, resSup = [], []
-            count = 1
+            
             for i in values:
-                if (i[1]==0):
-                    resInf.append(edgeNeeded-currentInf)
-                    resSup.append(edgeNeeded-currentSup)
+                currentMin = min(i[0], i[1])
+                if (currentMin == i[1]):
+                    resInf.append(edgeNeeded-currentInf+i[1])
+                    resSup.append(edgeNeeded-currentSup + i[1])
                 else:
                     resInf.append(i[0]+currentInf)
                     resSup.append(i[0]+currentSup)
@@ -84,8 +84,7 @@ def solve(n, k, roads):
                 sup = nextV
             else:
                 inf = nextV
-            er-=1
-        return float('%0.05f' % inf)
+        return float('%0.05f' % round(inf))
     def getMax(distance):
         currentMax = 0
         for node in values:
@@ -109,27 +108,57 @@ def solve(n, k, roads):
 #2 3 10
 #3 4 1
 #4 1 5
+#dasRoads = [
+#    [1, 2, 10],
+#    [2, 3, 10],
+#    [3, 4, 1],
+#    [4, 1, 5]
+#]
+#dasRoads = [[1,2,10]]
+#solve(2,1,dasRoads)
+#dasRoads = [
+#    [1, 2, 10],
+#    [2, 3, 10],
+#    [3, 4, 1],
+#    [4, 1, 5]
+#]
+#solve(4,1,dasRoads)
 dasRoads = [
-    [1, 2, 10],
-    [2, 3, 10],
-    [3, 4, 1],
-    [4, 1, 5]
+    [3, 7, 43],
+[7, 10, 91],
+[10, 1, 17],
+[1, 9, 86],
+[9, 5, 98],
+[5, 4, 85],
+[4, 8, 48],
+[8, 6, 94],
+[6, 2, 57],
+[5, 2, 80]
 ]
-dasRoads = [[1,2,10]]
-solve(2,1,dasRoads)
+solve(10,4,dasRoads)
 dasRoads = [
-    [1, 2, 10],
-    [2, 3, 10],
-    [3, 4, 1],
-    [4, 1, 5]
+    [6, 9, 93],
+[9, 4, 18],
+[4 ,3 ,80],
+[3, 7, 94],
+[7, 1, 68],
+[1, 5, 58],
+[5 ,10, 72],
+[10, 8, 45],
+[8, 2 ,93],
+[7, 10, 72],
 ]
-solve(4,1,dasRoads)
-
-#if (myGraph.get(a)):
-#    myGraph[a].append({b: edge})
-#else:
-#    myGraph[a] =[{b: edge}]
-#if (myGraph.get(b)):
-#    myGraph[b].append({a: edge})
-#else:
-#    myGraph[b] =[{a: edge}]
+solve(10,8,dasRoads)
+dasRoads = [
+    [1, 7, 77],
+[7, 8, 1],
+[8 ,10, 85],
+[10, 2, 21],
+[2, 4, 51],
+[4, 5, 66],
+[5, 9, 86],
+[9, 6, 89],
+[6, 3, 26],
+[9, 3, 70]
+]
+solve(10,5,dasRoads)
