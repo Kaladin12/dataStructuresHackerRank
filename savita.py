@@ -24,6 +24,7 @@ def solve(n, k, roads):
     
     def dijkstra(begin, end):
         shortest = {}
+        
         last = {}
         notVisitedNodes = []
         notVisitedNodes = myGraph.copy()
