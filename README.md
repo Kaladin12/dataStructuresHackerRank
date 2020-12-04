@@ -4,7 +4,7 @@ This is our exam/project which consisted of six Hacker Rank problems that we had
 This problem wasn't difficult because we had already done a cycle queue, therefore we only checked if every node's next node and added it to a list iteratively. If a node's next
 was already on the list it was a cycle, while if the node's next was "None" meant the queue had an end, in which case it was not a cycle queue.
 ## Problem 2: Is This a Binary Search Tree? ##
-This problem was almost an implementation of our binary search tree written in java, with the only excepction that we only needed to know whether the given tree is a bst or not, therefore, we used an in order traversal to enlist the items in a linked list (python list), then, we checked with a for loop if the value of every node was greater or equal than its following node, if so, the given tree wasn't a bst, else, it was.
+This problem was almost an implementation of our binary search tree written in java, with the only excepction that we only needed to know whether the given tree was a bst or not, therefore, we used an in order traversal to enlist the items in a python list, then, we checked with a for loop if the value of every node was greater or equal than its following node, if so, the given tree wasn't a bst, else, it was.
 ## Problem 3: Castle on the grid. ##
 This one was very fun to solve. When a castle is placed on the grid it can move to any position in it's "x" and "y" axis, therefore we added all those positions to a queue to 
 repeat the same process with them until an "X" was found. In order to make the algorithm more efficient, we skiped nodes that had an interruped path, which meaned that they were
