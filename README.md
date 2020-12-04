@@ -24,8 +24,8 @@ Once we knew the shortest distance from to each node of the graph, starting from
 ### Problems: ###
 Our Python implementation was not fast enough to suit the problem's requirements, so even though it solves the problem, it does not accomplish the task on time always, an example of this is with the given datasets with 100000 roads (edges), which lasted very long to finish, that's why our final image only shows as passed the test cases that doesn't contain datasets with 100000 edges in the graph.
 ## Team members: ##
-* Aviles Ulises
-* Cruz Elian
-* Cruz Daniel
-* Dennis David
+* Aviles Ulises.
+* Cruz Elian.
+* Cruz Daniel.
+* Dennis David.
 .
