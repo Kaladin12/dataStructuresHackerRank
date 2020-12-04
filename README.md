@@ -28,3 +28,4 @@ Our Python implementation was not fast enough to suit the problem's requirements
 * Cruz Elian
 * Cruz Daniel
 * Dennis David
+.
